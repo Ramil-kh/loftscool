@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Домашнее задание № 1</title>
+
+
+</head>
+<body>
+
+	<script type="text/javascript">
+		(function () {
+			var aArr = ['я', 'умею', 'писать', 'рекурсивные', 'функции'];
+
+			var fPrintArr = function (arr, i) {
+				console.log(arr[i]);
+				i++;
+				if(i < arr.length) {
+					fPrintArr(aArr, i);
+				}
+			}
+
+			console.group('Вариант 1 - без замыкания');
+			console.time("Время выполнения варианта 1");
+			fPrintArr(aArr, 0);
+			console.timeEnd("Время выполнения варианта 1");
+			console.groupEnd();
+
+		})();
+
+	</script>
+
+	<script type="text/javascript">
+		(function () {
+			var aArr = ['я', 'умею', 'писать', 'рекурсивные', 'функции'];
+
+			var fPrintArr = function (i) {
+				console.log(aArr[i]);
+				i++;
+				if(i < aArr.length) {
+					fPrintArr(i);
+				}
+			}
+
+			console.group('Вариант 2 - замыкание с глобальным массивов');
+			console.time("Время выполнения варианта 2");
+			fPrintArr(0);
+			console.timeEnd("Время выполнения варианта 2");
+			console.groupEnd();
+		})();
+	</script>
+
+	<script type="text/javascript">
+		(function () {
+			var aArr = ['я', 'умею', 'писать', 'рекурсивные', 'функции'];
+
+			var fPrintArr = function () {
+				console.log(aArr[0]);
+				aArr.shift(); 
+				if(aArr.length) {
+					fPrintArr();
+				}
+			}
+
+			console.group('Вариант 3 - замыкание с изменением глобального массива');
+			console.time("Время выполнения варианта 3");
+			fPrintArr();
+			console.timeEnd("Время выполнения варианта 3");
+			console.groupEnd();
+
+		})();
+
+	</script>
+	
+</body>
+</html>
