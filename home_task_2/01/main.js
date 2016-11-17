@@ -11,9 +11,6 @@
 		
 		} else {
 			for(var i = 0; i < source.length; i++) {
-				if(typeof source[i] != 'number') {
-					throw new Error('в массиве есть не число ' + source[i]);
-				}
 
 				if(!fFilter(source[i])) {
 					result = false;
@@ -29,9 +26,15 @@
  	
  	var fCheckEven = function(param) {
  		var result;
- 		param % 2 == 0 ? 
- 			result = true : 
- 			result = false ;
+
+		if(typeof param != 'number') {
+			throw new Error('в массиве есть не число ' + param);
+		
+		} else {
+	 		param % 2 == 0 ? 
+	 			result = true : 
+	 			result = false ;
+ 		}
  		return result;
  	}
 

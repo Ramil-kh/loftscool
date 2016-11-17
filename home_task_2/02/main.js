@@ -23,7 +23,7 @@
 	}
  	
  	var fIsString = function(param) {
- 		var result;
+ 		var result; 
 
  		typeof param == 'string' ? 
  			result = true : 
