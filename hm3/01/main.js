@@ -156,7 +156,12 @@
 					resultSource[resultSource.length] = arr[i];
 				}
 				
+			} 
+
+	 		for(var i = 0; i < resultSource.length; i++) { 
+	 			arr[i] = resultSource[i];
 			}
+			arr.length = i;
 
 			if(typeof newArr != 'undefined') {
 				for(var i = 0; i < newArr.length; i++) {
@@ -165,15 +170,15 @@
 			}
 
 		}
- 		
- 		arr = resultSource; 
 
 		return result;
 	};
 	
 	console.group('Аналог splice (с второго элемента, длина 2)');   
+	console.log(aArr.toString());  
 	mResult = fSplice(aArr, 2, 2, [1,1,1]);   
-	console.log(aArr.toString() + ' => ' + mResult.toString());   
+	console.log(mResult.toString());   
+	console.log(aArr.toString());  
 	console.groupEnd();
 	console.log('');
 	/**************************************************************/
